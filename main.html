@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+	<title>Login page</title>
+</head>
+
+<body>
+	<!-- CUSTOM ALERT BOX -->
+    <div class ="title">
+		<h1>Senior Citizen SURAKSHA App</h1>
+	</div>
+	<div class = "note">
+		<h3>Note : Signup with your emergency mail only</h3>
+	</div>
+	<div class="modal" id="custom_alert">
+		<div class="modal__content">
+			<a href="#" class="modal__close">&times;</a>
+			<h2 class="modal__heading">Delete</h2>
+			<p class="modal__paragraph">
+				Are You Sure, Do You Really Want To Delete Your Account ?
+			</p>
+			<button class="custom_alert_btn" onclick="deleteAccountConfirmed()" ,>Delete Account</button>
+		</div>
+	</div>
+
+	<div class="home-page" id="homePage">
+		<span id="user-profile"><img
+				src="https://1.bp.blogspot.com/-cEyIj1wczik/X4qpQ8t0NtI/AAAAAAAAAEQ/J_NQYnuH_tExCELlQcro5XFVHuxzt8F1gCLcBGAsYHQ/s900/PicsArt_10-17-01.48.59.png"
+				alt="User Profile" /></span><br />
+		<div class='profile-container'>
+			<div class="profile-item-container">
+				<div id="userImageContainer">
+					<img src="https://1.bp.blogspot.com/-cEyIj1wczik/X4qpQ8t0NtI/AAAAAAAAAEQ/J_NQYnuH_tExCELlQcro5XFVHuxzt8F1gCLcBGAsYHQ/s900/PicsArt_10-17-01.48.59.png"
+						alt="User Profile" />
+				</div>
+				<div class="username-txt" id="username-area" style="text-align: center;">
+					<span class="user-name" id="userName">Username Here</span>
+				</div>
+				<div class="fb-btns">
+					<span class="profile__btn1 main__btn2" id="edit-profile">Edit Profile</span>
+					<span class="profile__btn2 main__btn2" id="delete-account">Delete Account</span>
+					<span class="profile__btn3 main__btn" id="logout-btn">Log Out</span>
+				</div>
+			</div>
+		</div>
+		<div class="del-acc-form">
+			<div class="align-center">
+				<span><i class="fas fa-exclamation-triangle"></i></span>
+				<span class="text">Are You Sure Do You Really What To Delete Your Account, If You Delete Your Account
+					Your All Data Will Also Be Deleted And Cannot Restored.</span>
+				<button class="profile__btn4 main__btn3" id="delete-account-ref">Delete Account</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="signUp-form">
+		<form action="https://trendycart.ga" class="form-sUp" id='form-s'>
+			<h1 class="form__title">Sign Up</h1>
+			<div class="form__div">
+				<label for='es' class="fas fa-user"></label>
+				<input type="text" class="form__input username" id='u-n-s' placeholder=" ">
+				<label for="" class="form__label">Username</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+
+			<div class="form__div">
+				<label for='email' class="fas fa-envelope"></label>
+				<input type="text" class="form__input email" id='e-s' placeholder=" ">
+				<label for="" class="form__label">Email</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+
+			<div class="form__div">
+				<span class="fas fa-lock"></span>
+				<input type="password" class="form__input password" id="p-s" placeholder=" ">
+				<label for="" class="form__label">Password</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+
+			<div class="form__div">
+				<span class="fas fa-lock"></span>
+				<input type="password" class="form__input password" id="cp-s" placeholder=" ">
+				<label for="" class="form__label">Confirm Password</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<span class='shows' id='show-s'>Show</span>
+				<small>Error message</small>
+			</div>
+			<input type="submit" class="form__button" id="sign-btn" value="Sign Up">
+			<div class="sign__div">
+				<label class='sign-tog'>Already A Member? <a href='#' id='signIn' class='signUp'> Log In
+						Here</a></label>
+			</div>
+		</form>
+	</div>
+	<div class = "app">
+		
+		<button class="btn4" onclick="sendVerificationEmail()">Send SOS</button>
+	
+</div>
+	<div class="logIn-form">
+		<form action="https://trendycart.ga" class="form-sIn" id='form'>
+			<h1 class="form__title">Sign In</h1>
+			<div class="form__div">
+				<label for='email' class="fas fa-user"></label>
+				<input type="text" class="form__input email" id='email' placeholder=" ">
+				<label for="" class="form__label">Email</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+
+			<div class="form__div">
+				<span class="fas fa-lock"></span>
+				<input type="password" class="form__input password" id="password" placeholder=" ">
+				<label for="" class="form__label">Password</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<span class='show' id='show'>Show</span>
+				<small>Error message</small>
+			</div>
+
+
+			<a href='#' id='f-password' class='forgot'>Forgot Password</a>
+
+
+			<input type="submit" class="form__button" id="signIn-btn" value="Sign In">
+			<div class="sign__div">
+				<label class='sign-tog'>Not A Member? <a href='#' id='signUp' class='signUp'> Sign Up
+						Here</a></label><br />
+			</div>
+		</form>
+	</div>
+	<div class="f-pass-form">
+		<form action="https://trendycart.ga" class="form" id='form3'>
+			<h1 class="form__title">Reset Password</h1>
+			<div class="form__div">
+				<label for='email' class="fas fa-envelope"></label>
+				<input type="text" class="form__input email" id='emailf' placeholder=" ">
+				<label for="" class="form__label">Email</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<input type="submit" class="form__button" id="sendMail" value="Send Mail">
+			<span class="tog__btn" id="Login-btn">Log In</span>
+			<span class="tog__btn1" id="Signup-btn">Sign Up</span>
+		</form>
+	</div>
+
+	<div class="update-profile-form">
+		<form action="" class="form" id='form4'>
+			<h1 class="form__title">Update Profile</h1>
+			<div class="form__div">
+				<label for='' class="fas fa-user"></label>
+				<input type="text" class="form__input username" id='name-u' placeholder=" ">
+				<label for="" class="form__label">Username</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<div class="form__div">
+				<label for='' class="fas fa-image"></label>
+				<input type="file" accept="image/*" id="pofile-picture-user" class='form__input username'
+					onchange="uploadImage()">
+				<!--<span class="fas fa-upload" id="user-image-upload"></span>
+				<input type="url" class="form__input username" id='' placeholder=" ">-->
+				<label for="" class="form__label" id='user-image-selected'>Profile Picture</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<div id="waitBox">
+				<span>Please Wait...</span>
+			</div>
+			<input type="submit" class="form__button" id="uProfile" value="Update Profile">
+		</form>
+		<!-- CURRENTLY NOT WORKING I WILL UPDATE IN FUTURE -->
+		<span class="tog__btn" id="update-email-tog">Update Email</span>
+		<span class="tog__btn1" id="update-pass-tog">Update Password</span>
+	</div>
+
+	<div class="email-update-form">
+		<form action="https://trendycart.ga" class="form" id='formno5'>
+			<h1 class="form__title">Update Email</h1>
+			<div class="form__div">
+				<label for='email' class="fas fa-envelope"></label>
+				<input type="text" class="form__input email" id='new-user-email' placeholder=" ">
+				<label for="" class="form__label">New Email</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<input type="submit" class="form__button" id="update-email" value="Update Email">
+			<!--<span class="tog__btn" id="Login-btn">Log In</span>
+			<span class="tog__btn1" id="Signup-btn">Sign Up</span>-->
+		</form>
+	</div>
+
+   
+	<div class="Map">
+		<a href="maps.html">Maps</a>
+	</div>
+		
+
+
+	<div class="password-update-form">
+		<form action="https://trendycart.ga" class="form" id='form6'>
+			<h1 class="form__title">Update Password</h1>
+			<div class="form__div">
+				<label for='' class="fas fa-lock"></label>
+				<input type="password" class="form__input email" id='new-user-password' placeholder=" ">
+				<label for="" class="form__label">New Password</label>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<div class="form__div">
+				<label for='' class="fas fa-lock"></label>
+				<input type="password" class="form__input email" id='new-updated-user-password' placeholder=" ">
+				<label for="" class="form__label">Confirm Password</label>
+				<span class='shows' id='show-3'>Show</span>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<input type="submit" class="form__button" id="update-password" value="Update Password">
+			<!--<span class="tog__btn" id="Login-btn">Log In</span>
+			<span class="tog__btn1" id="Signup-btn">Sign Up</span>-->
+		</form>
+	</div>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+</body>
+<style>
+	/*===== GOOGLE FONTS =====*/
+	@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+	/*===== VARIABLES CSS =====*/
+	:root {
+		/*===== Colores =====*/
+		--first-color: #BB36FD;
+		--second-color: #9B00E8;
+		--third-color: #B71B1F;
+		--input-color: #80868B;
+		--border-color: #DADCE0;
+
+		/*===== Fuente y tipografia =====*/
+		--body-font: 'Roboto', sans-serif;
+		--normal-font-size: 1rem;
+		--small-font-size: .75rem;
+	}
+
+	#dark-mode {
+		filter: Invert(100%);
+	}
+
+	/*===== BASE =====*/
+	*,
+	::before,
+	::after {
+		box-sizing: border-box;
+	}
+
+	body,
+	html {
+		margin: 0;
+		padding: 0;
+		font-family: var(--body-font);
+		font-size: var(--normal-font-size);
+	}
+
+	h1 {
+		color: #883196;
+    margin-left: 200px;
+    font-size: 40px;
+	text-align: center;
+	}
+
+	.modal {
+		background-color: rgba(0, 0, 0, .8);
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		opacity: 0;
+		visibility: hidden;
+		transition: all .5s;
+		text-align: center;
+	}
+
+	.modal__content {
+		width: 75%;
+		height: 45%;
+		max-height: 65%;
+		background-color: #fff;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 4em 1em;
+		border-radius: 1em;
+		opacity: 0;
+		visibility: hidden;
+		overflow: auto;
+		transition: all .5s;
+	}
+
+	#custom_alert:target {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	#custom_alert:target .modal__content {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.modal__close {
+		color: #363636;
+		font-size: 2em;
+		text-decoration: none;
+		position: absolute;
+		top: .5em;
+		right: 1em;
+	}
+
+	.modal__heading {
+		color: dodgerblue;
+		margin-top: -1.2em;
+		margin-left: 2em;
+		margin-bottom: 1em;
+
+	}
+
+	.modal__paragraph {
+		line-height: 1.5em;
+		width: 100%;
+	}
+
+	.modal-open {
+		display: inline-block;
+		color: dodgerblue;
+		margin: 2em;
+	}
+    
+	.custom_alert_btn {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		font-size: 16px;
+		align-items: center;
+		border-radius: 10px;
+		width: 130px;
+		height: 40px;
+		padding: 50px auto;
+		margin-top: 10px;
+		margin-left: 40px;
+		margin-bottom: 10px;
+		border: 1px solid #B71B1F;
+		background: #fff;
+		font-weight: 500;
+		color: #b71b1f;
+		transition: all 0.4s ease;
+		outline: none;
+	}
+
+	.custom_alert_btn:hover {
+		background-image: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
+		color: #fff;
+	}
+
+	#waitBox {
+		display: none;
+		justify-content: center;
+		text-align: center;
+	}
+
+	#waitBox span {
+		text-align: center;
+		font-size: 17px;
+		font-weight: 500;
+		color: grey;
+	}
+
+	.align-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.email-update-form {
+		margin-top: -20px;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 360px;
+		transition: all 0.5s ease;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+	}
+
+	.password-update-form {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 360px;
+		transition: all 0.5s ease;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+	}
+
+	/*===== FORM =====*/
+	.form__div .shows {
+		float: right;
+		margin: 25px 150%;
+		color: #9b00e8;
+		font-size: 14px;
+		font-weight: bold;
+		cursor: pointer;
+		visibility: hidden;
+		font-family: 'Open Sans', sans-serif;
+		position: absolute;
+		transform: translateY(-50%);
+		transition: all 0.3s ease;
+		z-index: 100;
+	}
+
+	.form__div input:focus~.shows {
+		visibility: visible;
+		margin-left: 75%;
+		transition: all 0.4s ease;
+	}
+
+	.form__div .show {
+		float: right;
+		margin: 25px 150%;
+		color: #9b00e8;
+		font-size: 14px;
+		font-weight: bold;
+		cursor: pointer;
+		visibility: hidden;
+		font-family: 'Open Sans', sans-serif;
+		position: absolute;
+		transform: translateY(-50%);
+		transition: all 0.3s ease;
+		z-index: 100;
+	}
+
+	.form__div input:focus~.show {
+		visibility: visible;
+		margin-left: 75%;
+		transition: all 0.4s ease;
+	}
+
+	.form__div.success input {
+		border-color: #2ecc71;
+		z-index: 1;
+	}
+
+	.form__div.error input {
+		border-color: #e74c3c;
+	}
+
+	.header-text {
+		font-weight: 600;
+		font-size: 20px;
+		color: var(--first-color);
+		text-align: center;
+	}
+
+	.form__div i {
+		visibility: hidden;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.form__div.success i.fa-check-circle {
+		position: absolute;
+		color: #2ecc71;
+		font-size: 20px;
+		visibility: visible;
+		margin: 14px 14px;
+		transition: all 0.4s ease;
+		z-index: 100;
+	}
+
+	.form__div.error i.fa-exclamation-circle {
+		position: absolute;
+		color: #e74c3c;
+		font-size: 20px;
+		visibility: visible;
+		margin: 14px 14px;
+		transition: all 0.4s ease;
+		z-index: 100;
+	}
+
+	.form__div small {
+		color: #e74c3c;
+		position: absolute;
+		margin: 54px 10px;
+		visibility: hidden;
+		transition: all 0.4s ease;
+		z-index: 1;
+	}
+
+	.form__div.error small {
+		position: absolute;
+		visibility: visible;
+		transition: all 0.4s ease;
+		z-index: 1;
+	}
+
+	.update-profile-form {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 360px;
+		transition: all 0.5s ease;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+	}
+
+	.signUp-form {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		transition: all 0.5s ease;
+	}
+
+	.f-pass-form {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 360px;
+		transition: all 0.5s ease;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+	}
+
+	.form-sUp {
+		width: 360px;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+		transition: all 0.5s ease;
+	}
+
+	.logIn-form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+		transition: all 0.5s ease;
+	}
+
+	.home-page {
+		display: none;
+	}
+
+	.form__title {
+		font-weight: 400;
+		margin-bottom: 3rem;
+		text-align: center;
+		color: var(--second-color);
+		font-weight: 500;
+		font-size: 38px;
+	}
+
+	.form__div {
+		position: relative;
+		height: 48px;
+		margin-bottom: 1.5rem;
+	}
+
+	.form__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		font-size: var(--normal-font-size);
+		border: 1px solid var(--border-color);
+		border-radius: 15px;
+		outline: none;
+		padding: 14px 20px 14px 3.5rem;
+		background: none;
+		z-index: 1;
+
+	}
+    .note{
+		text-align: center;
+	}
+	.form__input:focus {
+		/*transform: scale(0.96);*/
+		transition: all 0.3s ease;
+	}
+
+	.form__label {
+		position: absolute;
+		left: 3.5rem;
+		top: 0.9rem;
+		padding: 0 .25rem;
+		background-color: #fff;
+		color: var(--input-color);
+		font-size: var(--normal-font-size);
+		transition: all 0.2s ease;
+	}
+
+	.form__label:hover {
+		transition: all 0.2s ease;
+	}
+	
+	.Map{
+		text-align: center;
+		color: blue;
+	}
+	.btn4{
+		
+		
+		border: 3px solid black;
+		background: red;
+        padding: 10px 20px;
+		font-size: 20px;
+		text-align: center;
+		margin: -500px;
+		float: center;
+	}
+    .app{
+		
+		text-align: center;
+		float: center;
+		color: rgb(238, 29, 29);
+		width: 260px;
+		border: none;
+		margin-left: 550px;
+		font-size: 18px;
+		
+		padding: 16px;
+		margin: 20px 20px;
+		outline: none;
+		
+		cursor: pointer;
+		
+	}
+	.form__button {
+		background: linear-gradient(45deg, #bb36fd, #9b00e8);
+		color: #fff;
+		width: 260px;
+		border: none;
+		font-size: 18px;
+		border-radius: 25px;
+		padding: 16px;
+		margin: 20px 20px;
+		outline: none;
+		-webkit-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		-moz-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+		box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.form__button:hover {
+		background: linear-gradient(45deg, #c85bff, #b726ff);
+		transition: all 0.3s ease;
+		transform: scale(0.96);
+	}
+
+	/*Input focus move up label*/
+	.form__input:focus+.form__label {
+		top: -.35rem;
+		left: 3.5rem;
+		color: var(--first-color);
+		font-size: var(--small-font-size);
+		font-weight: 500;
+		z-index: 10;
+	}
+
+	/*Input focus sticky top label*/
+	.form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
+		top: -.35rem;
+		left: 3.5rem;
+		font-size: var(--small-font-size);
+		font-weight: 500;
+		z-index: 10;
+	}
+
+	/*Input focus*/
+	.form__input:focus {
+		border: 1.5px solid var(--first-color);
+	}
+
+	.form__div .fa-user,
+	.fa-envelope,
+	.fa-image,
+	.fa-lock {
+		position: absolute;
+		font-size: 22px;
+		margin: 1px 1px;
+		background: linear-gradient(-105deg, #bb36fd, #9b00e8);
+		padding: 12px 16px;
+		border-radius: 14px 0 0 14px;
+		color: #fff;
+		width: 50px;
+		z-index: 100;
+	}
+
+	.fa-upload {
+		position: relative;
+		float: right;
+		font-size: 22px;
+		margin: 1px 1px;
+		background: linear-gradient(-105deg, #bb36fd, #9b00e8);
+		padding: 12px 14px;
+		border: none;
+		border-radius: 0 14px 14px 0;
+		color: #fff;
+		width: 50px;
+		z-index: 100;
+		outline: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	.fa-exclamation-triangle {
+		position: absolute;
+		justify-content: center;
+		font-size: 80px;
+		margin-top: -180px;
+		margin-left: 90px;
+		background: transparent;
+		padding: 14px;
+		border: none;
+		color: #ed433f;
+		z-index: 100;
+		outline: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	.image-upload {
+		display: none;
+	}
+
+	.disabled {
+		color: lightgrey;
+		background: black;
+		user-select: none;
+		cursor: none;
+	}
+
+	.forgot {
+		color: var(--first-color);
+		text-decoration: none;
+		margin: 0 10px;
+	}
+
+	.signUp {
+		color: var(--first-color);
+		text-decoration: none;
+		margin: 0 auto;
+	}
+
+	.sign__div {
+		text-align: center;
+		margin-bottom: -50px;
+		margin-top: 50px;
+	}
+
+	span.logout__btn {
+		min-width: 30%;
+		/*display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 600;
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+		margin-bottom: 20px;
+		margin-top: 120px;
+		margin-left: 120px;
+		text-align: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	.logout__btn:hover {
+		border: 1px solid var(--first-color);
+		background: #fff;
+		color: #9b00e8;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	a.del__btn {
+		min-width: 30%;
+		/*display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 600;
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+
+		text-align: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	.del__btn:hover {
+		border: 1px solid var(--first-color);
+		background: #fff;
+		color: #9b00e8;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	span.tog__btn {
+		width: 40%;
+		/*display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: #9b00e8;
+		font-size: 14px;
+		font-weight: 600;
+		background: #fff;
+		margin-bottom: 20px;
+		margin-top: 40px;
+		margin-left: 160px;
+		text-align: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	span.tog__btn1 {
+		width: 40%;
+		/*    display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: #9b00e8;
+		font-size: 14px;
+		font-weight: 600;
+		background: #fff;
+		margin-bottom: 20px;
+		margin-top: 40px;
+		margin-left: auto;
+		text-align: center;
+		justify-content: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	span.tog__btn3 {
+		min-width: 30%;
+		/*    display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: #9b00e8;
+		font-size: 14px;
+		font-weight: 600;
+		background: #fff;
+		margin: 50px 120px;
+		text-align: center;
+		justify-content: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		appearance: none;
+	}
+
+	.tog__btn:hover {
+		border: 1px solid var(--first-color);
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+		color: #fff;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	.tog__btn1:hover {
+		border: 1px solid var(--first-color);
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+		color: #fff;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	.tog__btn3:hover {
+		border: 1px solid var(--first-color);
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+		color: #fff;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	.del__acc {
+		min-width: 30%;
+		/*    display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: #9b00e8;
+		font-size: 14px;
+		font-weight: 600;
+		background: #fff;
+
+		text-align: center;
+		justify-content: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		appearance: none;
+	}
+
+	.del__acc:hover {
+		border: 1px solid var(--first-color);
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+		color: #fff;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	.del-acc-form {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 360px;
+		transition: all 0.5s ease;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+	}
+
+	.profile-editor {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 280px;
+		transition: all 0.5s ease;
+		padding: 8rem 2rem;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+	}
+
+	#user-profile img {
+		float: right;
+		width: 50px;
+		height: 50px;
+		object-fit: cover;
+	}
+
+	.profile-item-container {
+		margin-left: 10px;
+		margin-top: -20px;
+	}
+
+	.profile-container {
+		display: none;
+		margin: 20px 50px;
+		padding: 35px 50px;
+		justify-content: center;
+		position: fixed;
+		background: #fff;
+		width: 250px;
+		min-height: 75vh;
+		max-height: 100vh;
+		height: auto;
+		color: #000;
+		border-radius: 10px;
+		box-shadow: 8px 9px 16px #cbced1,
+			-13px -13px 16px #ffffff,
+			6px 4px 14px #cbced1 inset;
+		overflow: hidden;
+	}
+
+	.user-name {
+		position: relative;
+		font-size: 19px;
+		font-weight: 600;
+		text-align: center;
+		margin: auto auto;
+		z-index: 100;
+	}
+
+	.username-txt {
+		position: relative;
+		background: #fff;
+		overflow: auto;
+		height: 25px;
+		margin-left: 15px;
+		margin-top: 15px;
+		width: 100px;
+		text-overflow: ellipsis;
+		z-index: -100;
+	}
+
+	.fb-btns {
+		margin-top: -60px;
+		align-items: center;
+	}
+
+	.profile-container img {
+		border-radius: 50%;
+		margin: 10px 27px;
+		border: none;
+		height: 80px;
+		width: 80px;
+		color: #ffffff;
+		outline: none;
+		object-fit: cover;
+		box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+	}
+
+	#user-profile img {
+		border-radius: 50%;
+		margin: 5px 5px;
+		border: none;
+		outline: none;
+		object-fit: cover;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+	}
+
+	span.profile__btn1 {
+		min-width: 60%;
+		/*display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: var(--first-color);
+		font-size: 14px;
+		font-weight: 600;
+		background: #fff;
+		margin: 100px -10px;
+		text-align: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		outline: none;
+	}
+
+	span.profile__btn2 {
+		min-width: 60%;
+		/*display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: var(--first-color);
+		font-size: 14px;
+		font-weight: 600;
+		background: #fff;
+		margin: 150px -10px;
+		text-align: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		outline: none;
+	}
+
+	span.profile__btn3 {
+		min-width: 60%;
+		/*display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--first-color);
+		border-radius: 10px;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 600;
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+		margin: 200px -10px;
+		text-align: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		outline: none;
+	}
+
+	.profile__btn4 {
+		min-width: 50%;
+		/*display: flex;*/
+		cursor: pointer;
+		padding: 12px;
+		border: 1px solid var(--third-color);
+		border-radius: 10px;
+		color: var(--third-color);
+		font-size: 14px;
+		font-weight: 600;
+		background: #fff;
+		margin: 90px auto;
+		text-align: center;
+		position: absolute;
+		font-family: 'Open Sans', sans-serif;
+		transition: all 0.3s ease;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		outline: none;
+	}
+
+	.main__btn:hover {
+		border: 1px solid var(--first-color);
+		background: #fff;
+		color: #9b00e8;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	.main__btn2:hover {
+		border: 1px solid var(--first-color);
+		background: linear-gradient(-45deg, #bb36fd, #9b00e8);
+		color: #fff;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	.main__btn3:hover {
+		border: 1px solid var(--third-color);
+		background-image: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
+		color: #fff;
+		transition: all 0.3s ease;
+		transform: scale(0.97);
+	}
+
+	.btn-ripple {
+		background: rgba(255, 255, 255, 0.3);
+		position: absolute;
+		border-radius: 100%;
+		animation: 1s;
+		transform: scale(0);
+	}
+</style>
+<!--FIREBASE CONFIGURATION CHANGE THIS TO YOURS-->
+<script>
+	// Your web app's Firebase configuration
+	var config = {
+		apiKey: "AIzaSyAJvBlhngvwKajLPYRb5RMoWN3rR9AWPlU",
+		authDomain: "senior-safety-app-f4640.firebaseapp.com",
+		projectId: "senior-safety-app-f4640",
+		storageBucket: "senior-safety-app-f4640.appspot.com",
+		messagingSenderId: "59153184794",
+		appId: "1:59153184794:web:28ab486a906d2e6a0d79a3"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(config);
+</script>
+<script>
+	var forms = document.getElementById('form-s');
+	var es = document.getElementById('e-s');
+	var ps = document.getElementById('p-s');
+	var shs = document.getElementById('show');
+	var usernames = document.getElementById('u-n-s');
+	var cps = document.getElementById('cp-s');
+
+	//YOU CAN USE THIS IN (showHome Function) Which Is placed Everywhere Where It Has To Be Shown
+
+	var website = "https://www.trendycart.ga";
+
+	//PREVENTING FORM FROM SUBMITTING
+
+	forms.addEventListener('submit', e => {
+		e.preventDefault();
+
+		validateSignup();
+	});
+
+	// ########## SIGN UP FORM VALIDATION #########	
+	function validateSignup() {
+
+		// trim to remove the whitespaces
+		var emailValue1 = es.value.trim();
+		var passwordValue1 = ps.value.trim();
+		var usernameValue1 = usernames.value.trim();
+		var cpasswordValue1 = cps.value.trim();
+
+		if (emailValue1 === '') {
+			setErrorFor(es, 'Email Cannot Be Left Blank');
+		} else if (!isEmail(emailValue1)) {
+			setErrorFor(es, 'Please Enter A Valid Email');
+		} else {
+			setSuccessFor(es);
+		}
+		if (passwordValue1 === '') {
+			setErrorFor(ps, 'Password Cannot Be Left Blank');
+		} else if (passwordValue1.length <= 5) {
+			setErrorFor(ps, 'Password Must be 6 Character Long');
+		} else if (cpasswordValue1 !== passwordValue1) {
+			setErrorFor(ps, 'Password does not match');
+		} else {
+			setSuccessFor(ps);
+		}
+		if (cpasswordValue1 === '') {
+			setErrorFor(cps, 'Confirm Password Cannot Be Left Blank');
+		} else if (passwordValue1 !== cpasswordValue1) {
+			setErrorFor(cps, 'Password does not match');
+		} else if (cpasswordValue1.length <= 5) {
+			setErrorFor(cps, 'Password Must be 6 Character Long');
+		} else {
+			setSuccessFor(cps);
+		}
+		if (usernameValue1 === '') {
+			setErrorFor(usernames, 'Username Cannot Be Left Blank');
+		} else {
+			setSuccessFor(usernames);
+		}
+		if (usernameValue1 === '' || emailValue1 === '' || passwordValue1 === '' || cpasswordValue1 === '' || cpasswordValue1 !== passwordValue1 || cpasswordValue1.length <= 5 || passwordValue1.length <= 5) {
+			return false;
+		} else {
+			setUser();
+		}
+	}
+	// ########## SIGN UP VALIDATION ENDS ###########
+
+	/*=== === === = LOGIN FORM VALIDATION === === === = */
+
+	var form = document.getElementById('form');
+	var email = document.getElementById('email');
+	var password = document.getElementById('password');
+
+	//PREVENTING FORM FROM SUBMITTING
+
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+
+		validateLogin();
+	});
+    function sos(){
+		var user = firebase.auth().currentUser;
+		Email.send({ 
+        Host: "smtp.gmail.com", 
+        Username: "aaravsharma7111@gmail.com", 
+        Password: "", 
+        To: user, 
+        From: "aaravsharma7111@gmail.com", 
+        Subject: "SOS", 
+        Body: "HELP!!", 
+      }) 
+        .then(function (message) { 
+          alert("mail sent successfully") 
+        }); 
+	}
+	function validateLogin() {
+		// trim to remove the whitespaces
+		var emailValue = email.value.trim();
+		var passwordValue = password.value.trim();
+		if (emailValue === '') {
+			setErrorFor(email, 'Email Cannot Be Blank');
+		} else if (!isEmail(emailValue)) {
+			setErrorFor(email, 'Please Enter A Valid Email');
+		} else {
+			setSuccessFor(email);
+		}
+
+		if (passwordValue === '') {
+			setErrorFor(password, 'Password cannot be blank');
+		} else if (passwordValue.length <= 5) {
+			setErrorFor(password, 'Password Must be 6 Character Long');
+		} else {
+			setSuccessFor(password);
+		}
+		if (emailValue === '' || !isEmail(emailValue) || passwordValue === '' || passwordValue.length <= 5) {
+			return false;
+		} else {
+			addUser();
+		}
+	}
+
+	function setErrorFor(input, message) {
+		var formControl = input.parentElement;
+		var small = formControl.querySelector('small');
+		formControl.className = 'form__div error';
+		small.innerText = message;
+	}
+
+	function setSuccessFor(input) {
+		var formControl = input.parentElement;
+		formControl.className = 'form__div success';
+	}
+
+	function isEmail(email) {
+		return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+	}
+
+	function addUserName() {
+		var user = firebase.auth().currentUser;
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				var uns = $("#u-n-s").val()
+				user.updateProfile({
+					displayName: uns,
+					photoURL: "https://1.bp.blogspot.com/-cEyIj1wczik/X4qpQ8t0NtI/AAAAAAAAAEQ/J_NQYnuH_tExCELlQcro5XFVHuxzt8F1gCLcBGAsYHQ/s900/PicsArt_10-17-01.48.59.png"
+				}).then(function () {
+					console.log("User Name Added To Database");
+				}).catch(function (error) {
+					console.log(error)
+				})
+			} else {
+				return false;
+			}
+		})
+	}
+
+	function sendVerificationEmail() {
+		$(document).ready(function () {
+			firebase.auth().currentUser.sendEmailVerification().then(function () {
+				console.log("Verification Email Sent To User !")
+			}).catch(function (error) {
+				console.log(error);
+			})
+			.then(function (message) { 
+		  alert("mail sent successfully") 
+			})
+		});
+	}
+
+	function deleteAccountConfirmed() {
+		firebase.auth().currentUser.delete().then(function () {
+			alert("Account Deleted Successfully");
+			location.href = "#";
+			showLogin();
+		}).catch(function (error) {
+			alert("Cannot Delete Account, Try After Some Time");
+			console.log(error);
+		})
+	}
+
+	$(document).ready(function () {
+		$("#delete-account-ref").click(function () {
+			//deleteAccountConfirmation();
+			location.href = "#custom_alert"
+		});
+	});
+	/*
+	function deleteAccountConfirmation() {
+		var confirmDelete = confirm("Are You Sure, Do You Really Want To Delete Your Account");
+		if (confirmDelete) {
+			deleteAccountConfirmed()
+		} else {
+			return false;
+		}
+	}*/
+
+	//ADDING FUNCTIONALITY TO FORGOT PASSWORD FORM WITH FIREBASE/jQuery
+	function sendMailFb() {
+		$(document).ready(function () {
+			var email = $("#emailf").val()
+			firebase.auth().sendPasswordResetEmail(email)
+				.then(function () {
+					alert("Password Reset Email Sent Successfully !");
+				})
+				.catch(function (error) {
+					alert(error);
+					console.log(error);
+				})
+		});
+	}
+
+	function uploadImage() {
+		setWaitForUpdate();
+		var ref = firebase.storage().ref("images/");
+		var userImgfile = document.querySelector("#pofile-picture-user").files[0];
+		var userImgname = +new Date() + "-" + userImgfile.name;
+		var metadata = {
+			contentType: userImgfile.type
+		};
+		var task = ref.child(userImgname).put(userImgfile, metadata);
+		task
+			.then(snapshot => snapshot.ref.getDownloadURL())
+			.then(downloadURL => {
+				endWaitForUpdate();
+				imageUrl = downloadURL;
+			})
+			.catch(console.error);
+	}
+
+	function updateUserProfile() {
+		var user = firebase.auth().currentUser;
+		var userNm = $("#name-u").val();
+		var userPrf = $("#profile-u").val()
+		var userIm = $("#pofile-picture-user").val();
+		user.updateProfile({
+			displayName: userNm,
+			photoURL: imageUrl
+		}).then(function () {
+			alert("Profile Updated Successfully");
+		}).catch(function (error) {
+			alert("An Error Occurred To Update Profile, Try After Some Time");
+			console.log(error);
+		})
+	}
+
+	//ADDING FUNCTIONALITY TO LOGIN FORM WITH FIREBASE & jQuery
+	function addUser() {
+		$(document).ready(function () {
+			var email = $("#email").val()
+			var password = $("#password").val()
+			firebase.auth().signInWithEmailAndPassword(email, password)
+				.then(function () {
+					showHome()
+					userImageReplacement()
+				})
+				.catch(function (error) {
+					// Handle Errors here.
+					var errorCode = error.code;
+					var errorMessage = error.message;
+					alert(errorMessage);
+					console.log(errorCode);
+				});
+		});
+	}
+
+	// CREATING USER IN FIREBASE (PLACED ON ITS OWN FUNCTION)
+	function setUser() {
+		$(document).ready(function () {
+			var es = $("#e-s").val()
+			var ps = $("#p-s").val()
+			firebase.auth().createUserWithEmailAndPassword(es, ps)
+				.then(function () {
+					console.log("Signed In ")
+					showHome()
+					sendVerificationEmail()
+					addUserName()
+					userImageReplacement()
+				})
+				.catch(function (error) {
+					var errorCode = error.code;
+					var errorMessage = error.message;
+					alert(errorMessage);
+					console.log(errorCode);
+				})
+		});
+	}
+
+	$(document).ready(function () {
+		var user = firebase.auth().currentUser;
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				console.log("Status: User Is Signed In");
+				showHome();
+				userImageReplacement()
+			} else {
+				console.log("Status: No User Is Signed In");
+				showLogin();
+			}
+		})
+	});
+
+	//CREATING FUNCTION TO SET ERROR/SUCCESS FOR INPUT BOXES
+	function setErrorFor(input, message) {
+		var formControl = input.parentElement;
+		var small = formControl.querySelector('small');
+		formControl.className = 'form__div error';
+		small.innerText = message;
+	}
+
+	function setSuccessFor(input) {
+		var formControl = input.parentElement;
+		formControl.className = 'form__div success';
+	}
+
+	function isEmail(es) {
+		return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+	}
+
+	// ADDING FUNCTIONALITY TO SHOW/HIDE BUTTONS IN SIGN UP FORM
+	var input1 = document.querySelector('#p-s');
+	var input2 = document.querySelector('#cp-s');
+	var show2 = document.querySelector('#show-s');
+	show2.addEventListener('click', active);
+
+	function active() {
+		if (input1.type === "password" || input2.type === "password") {
+			input1.type = "text";
+			input2.type = "text";
+			show2.style.color = "#9b00e8";
+			show2.textContent = "Hide";
+		} else {
+			input1.type = "password";
+			input2.type = "password";
+			show2.textContent = "Show";
+			show2.style.color = "#9b00e8";
+		}
+	}
+
+	var input4 = document.querySelector('#new-user-password');
+	var input3 = document.querySelector('#new-updated-user-password');
+	var show3 = document.querySelector('#show-3');
+	show3.addEventListener('click', active2);
+
+	function active2() {
+		if (input3.type === "password" || input4.type === "password" || input5.type === "password") {
+			input3.type = "text";
+			input4.type = "text";
+			show3.style.color = "#9b00e8";
+			show3.textContent = "Hide";
+		} else {
+			input3.type = "password";
+			input4.type = "password";
+			show3.textContent = "Show";
+			show3.style.color = "#9b00e8";
+		}
+	}
+
+	// ADDING FUNCTIONALITY TO SHOW/HIDE BUTTONS IN LOG IN FORM
+	var input = document.getElementById('password');
+	var show = document.querySelector('#show');
+	show.addEventListener('click', active);
+
+	function active() {
+		if (input.type === "password") {
+			input.type = "text";
+			show.style.color = "#9b00e8";
+			show.textContent = "Hide";
+		} else {
+			input.type = "password";
+			show.textContent = "Show";
+			show.style.color = "#9b00e8";
+		}
+	}
+
+
+	/*=== === === = PROFILE UPDATING VALIDATION === === === = */
+
+
+	var form4 = document.getElementById("form4");
+
+	form4.addEventListener('submit', e => {
+		e.preventDefault();
+
+		checkProfileValues();
+	});
+
+
+
+	var userNameUpdate = document.getElementById('name-u');
+	var profileUpdate = document.getElementById('pofile-picture-user');
+
+	function checkProfileValues() {
+		var uNameVal = userNameUpdate.value.trim();
+		var uProVal = profileUpdate.value.trim();
+
+		if (uNameVal === "") {
+			setErrorFor(userNameUpdate, 'Username Cannot Be Left Blank');
+		} else {
+			setSuccessFor(userNameUpdate);
+		}
+		if (uProVal === "") {
+			setErrorFor(profileUpdate, 'Profile Image Cannot Be Left Blank');
+		} else {
+			setSuccessFor(profileUpdate);
+		}
+		if (uNameVal === "" || uProVal === "") {
+			return false;
+		} else {
+			updateUserProfile();
+		}
+	}
+
+	function setErrorFor(input, message) {
+		var formControl = input.parentElement;
+		var small = formControl.querySelector('small');
+		formControl.className = 'form__div error';
+		small.innerText = message;
+	}
+
+	function setSuccessFor(input) {
+		var formControl = input.parentElement;
+		formControl.className = 'form__div success';
+	}
+
+	function isEmail(email) {
+		return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+	}
+
+
+	/*=== === === = PROFILE UPDATING VALIDATION END === === === = */
+
+
+	var form3 = document.getElementById('form3');
+	var emailf = document.getElementById('emailf');
+	var emailUpdateValue = document.getElementById('new-user-email');
+	var tupov1 = document.getElementById('new-user-password');
+	var tuupv1 = document.getElementById('new-updated-user-password');
+	var tucpv1 = document.getElementById('current-user-password');
+	var tucpv3 = document.getElementById('current-user-password-2');
+
+	form3.addEventListener('submit', e => {
+		e.preventDefault();
+
+		recoverPassword();
+	});
+
+	function recoverPassword() {
+		// trim to remove the whitespaces
+		var emailValue3 = emailf.value.trim();
+
+		if (emailValue3 === '') {
+			setErrorFor(emailf, 'Email Cannot Be Left Blank');
+		} else if (!isEmail(emailValue3)) {
+			setErrorFor(emailf, 'Please Enter A Valid Email');
+		} else {
+			setSuccessFor(emailf);
+			sendMailFb();
+		}
+	}
+
+	function validateEmailUpdateForm() {
+		// trim to remove the whitespaces
+		var userEmailUpdateValue = emailUpdateValue.value.trim();
+
+		if (userEmailUpdateValue === '') {
+			setErrorFor(emailUpdateValue, 'Email Cannot Be Left Blank');
+		} else if (!isEmail(userEmailUpdateValue)) {
+			setErrorFor(emailUpdateValue, 'Please Enter A Valid Email');
+		} else {
+			setSuccessFor(emailUpdateValue);
+			updateUserEmail();
+		}
+	}
+
+	function validatePasswordUpdateForm() {
+		// trim to remove the whitespaces
+		var tupov2 = tupov1.value.trim();
+		var npuv2 = tuupv1.value.trim();
+
+		if (tupov2 === '') {
+			setErrorFor(tupov1, 'New Password Cannot Be Left Blank');
+		} else if (tupov2.length <= 5) {
+			setErrorFor(tupov1, 'Passwords Must Be 6 Character Long');
+		} else if (npuv2 !== tupov2) {
+			setErrorFor(tupov1, 'Passwords Does Not Match');
+		} else {
+			setSuccessFor(tupov1);
+		}
+		if (npuv2 === "") {
+			setErrorFor(tuupv1, 'Confirm Password Cannot Be Left Blank');
+		} else if (npuv2.length <= 5) {
+			setErrorFor(tuupv1, 'Passwords Must Be 6 Character Long');
+		} else if (npuv2 !== tupov2) {
+			setErrorFor(tuupv1, 'Passwords Does Not Match');
+		} else {
+			setSuccessFor(tuupv1);
+		}
+		if (npuv2 === '' || tupov2 === '' || tupov2 !== npuv2 || npuv2.length <= 5 || tupov2.length <= 5) {
+			return false;
+		} else {
+			updateUserPassword();
+		}
+	}
+
+	function validateEmailUpdateForm() {
+		var newEUValue1 = emailUpdateValue.value.trim();
+
+		if (newEUValue1 === '') {
+			setErrorFor(emailUpdateValue, 'New Email Cannot Be Left Blank');
+		} else if (!isEmail(newEUValue1)) {
+			setErrorFor(emailUpdateValue, 'Please Enter A Valid Email');
+		} else {
+			setSuccessFor(emailUpdateValue);
+			updateUserEmail();
+		}
+	}
+	/*
+	var user = firebase.auth().currentUser;
+	var userNameId, userEmailId, photoUrl, uid, emailVerified;
+	
+	if (user != null) {
+	  userNameId = user.displayName;
+	  userEmailId = user.email;
+	  photoUrl = user.photoURL;
+	  emailVerified = user.emailVerified;
+	  uid = user.uid; // The user's ID, unique to the Firebase project. Do NOT use
+	  // this value to authenticate with your backend server, if
+	  // you have one. Use User.getToken() instead.
+	}
+	document.write(userNameId);
+	document.write(userEmailId);
+	document.write(photoUrl);
+	document.write(emailVerified);
+	document.write(uid);
+	*/
+
+	function userImageReplacement() {
+		firebase.auth().onAuthStateChanged(function (user) {
+			var user = firebase.auth().currentUser;
+			var userImage = document.getElementById("userImageContainer");
+			var userImageIcon = document.getElementById("user-profile");
+			var userNameTxt = document.getElementById("username-area");
+			var userNameMainText = document.getElementById("userName");
+
+
+			if (user) {
+				userImage.innerHTML = "<img src='" + user.photoURL + "' alt='User Profile' />"
+				userImageIcon.innerHTML = "<img src='" + user.photoURL + "' alt='User Profile' />"
+				userNameTxt.innerHTML = "<span class='user-name' id='userName'>" + user.displayName + "</span>"
+			} else {
+				userImage.innerHTML = "<img src='https://1.bp.blogspot.com/-cEyIj1wczik/X4qpQ8t0NtI/AAAAAAAAAEQ/J_NQYnuH_tExCELlQcro5XFVHuxzt8F1gCLcBGAsYHQ/s900/PicsArt_10-17-01.48.59.png' alt='User Profile' />"
+				userImageIcon.innerHTML = "<img src='https://1.bp.blogspot.com/-cEyIj1wczik/X4qpQ8t0NtI/AAAAAAAAAEQ/J_NQYnuH_tExCELlQcro5XFVHuxzt8F1gCLcBGAsYHQ/s900/PicsArt_10-17-01.48.59.png' alt='User Profile' />"
+				userNameTxt.innerHTML = "<span class='user-name' id='userName'>Username</span>"
+			}
+		})
+	}
+
+	/*
+	
+		$(function() {
+	
+			//creating a style object for the ripple effect
+			function RippleStyle(width, height, posX, posY) {
+				this.width = (width <= height) ? height : width;
+				this.height = (width <= height) ? height : width;
+				this.top = posY - (this.height * 0.5);
+				this.left = posX - (this.width * 0.5);
+			}
+	
+			$('.ripple').on('mousedown', function(e) {
+				//appending an element with a class name "btn-ripple"
+				var rippleEl = $('<span class="btn-ripple"></span>').appendTo(this);
+	
+				//getting the button's offset position
+				var pos = $(this).offset();
+	
+				//get the button's width and height
+				var width = $(this).outerWidth();
+				var height = $(this).outerHeight();
+	
+				//get the cursor's x and y position within the button
+				var posX = e.pageX - pos.left;
+				var posY = e.pageY - pos.top;
+	
+				//adding a css style to the ripple effect
+				var rippleStyle = new RippleStyle(width, height, posX, posY);
+				rippleEl.css(rippleStyle);
+			});
+	
+			//this event listener will be triggered once the ripple animation is done
+			$('.ripple').on('animationend webkitAnimationEnd oanimationend MSAnimationEnd', '.btn-ripple', function() {
+				$(this).remove();
+			});
+		}); */
+	/*
+	
+	  var user = firebase.auth().currentUser;
+	var credential = firebase.auth.EmailAuthProvider.credential(
+		  user.email, currentPassword);
+	
+	// Prompt the user to re-provide their sign-in credentials
+	
+	user.reauthenticateWithCredential(credential).then(function() {
+	  // User re-authenticated.
+	}).catch(function(error) {
+	  // An error happened.
+	});
+	*/
+</script>
+<!--FORM TOGGLE FUNCTION jQuery-->
+<script>
+	$(".app").hide()
+	$(".Map").hide()
+</script>
+<script>
+	$(document).ready(function () {
+		$("#user-profile").click(function () {
+			$(".profile-container").toggle();
+			$(".del-acc-form").hide();
+			$(".update-profile-form").hide();
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".f-pass-form").hide()
+			$(".app").show()
+			$(".Map").show()
+		});
+		$("#delete-account").click(function () {
+			$(".profile-container").hide();
+			$(".del-acc-form").show();
+			$(".update-profile-form").hide();
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".f-pass-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+		});
+		$("#edit-profile").click(function () {
+			$(".profile-container").hide();
+			$(".profile-editor").show();
+			$(".update-profile-form").show();
+			$(".del-acc-form").hide();
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".f-pass-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+		});
+	});
+
+	$(document).ready(function () {
+		$("#signUp").click(function () {
+			$(".signUp-form").show()
+			$(".logIn-form").hide()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".f-pass-form").hide()
+			
+		});
+		$("#signIn").click(function () {
+			$(".signUp-form").hide()
+			$(".logIn-form").show()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".f-pass-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+		});
+		$("#f-password").click(function () {
+			$(".f-pass-form").show()
+			$(".logIn-form").hide()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".signIn-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+		});
+		$("#Login-btn").click(function () {
+			$(".logIn-form").show()
+			$(".signUp-form").hide()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".f-pass-form").hide()
+			$(".app").show()
+			$(".Map").show()
+		});
+		$("#Signup-btn").click(function () {
+			$(".logIn-form").hide()
+			$(".signUp-form").show()
+			$(".f-pass-form").hide()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+			
+		});
+		$("#Login-btn-up").click(function () {
+			$(".logIn-form").show()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+			
+		});
+		$("#Signup-btn-up").click(function () {
+			$(".logIn-form").hide()
+			$(".signUp-form").show()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+			
+		});
+		$("#update-profile-btn").click(function () {
+			/*$(".logIn-form").hide()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").show()*/
+			showUpdateP();
+		});
+		$("#update-email-tog").click(function () {
+			$(".logIn-form").hide()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").hide()
+			$(".email-update-form").show()
+			$(".app").hide()
+			$(".Map").hide()
+		});
+		$("#update-pass-tog").click(function () {
+			$(".logIn-form").hide()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").hide()
+			$(".password-update-form").show()
+			$(".f-pass-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+		});
+	});
+
+	function setWaitForUpdate() {
+		$(document).ready(function () {
+			$("#uProfile").hide()
+			$("#waitBox").show()
+		})
+	}
+
+	function endWaitForUpdate() {
+		$(document).ready(function () {
+			$("#uProfile").show()
+			$("#waitBox").hide()
+		})
+	}
+
+	function showHome() {
+		$(document).ready(function () {
+			$(".logIn-form").hide()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").hide()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".home-page").show()
+			$(".app").show()
+			$(".Map").show()
+			$("title").show()
+			//location.herf = website;
+		})
+	}
+
+	function showLogin() {
+		$(document).ready(function () {
+			$(".logIn-form").show()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").hide()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$("#homePage").hide()
+			$(".Map").hide()
+			$("title").hide()
+		})
+	}
+
+	function openLogin() {
+		$(document).ready(function () {
+			$(".logIn-form").show()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").hide()
+			$(".password-update-form").hide()
+			$(".email-update-form").hide()
+			$(".app").hide()
+			$(".Map").hide()
+		})
+	}
+
+	function logoutCurrentUser() {
+		var user = firebase.auth().currentUser;
+
+		firebase.auth().signOut().then(function () {
+			console.log("Signed Out Password Or Email Is Changed");
+			showLogin()
+			location.reload()
+		}).catch(function (error) {
+			console.log(error);
+		})
+	}
+
+	function showUpdateProfile() {
+		$(document).ready(function () {
+			$(".logIn-form").hide()
+			$(".signUp-form").hide()
+			$(".f-pass-form").hide()
+			$(".update-profile-form").show()
+			$("#homePage").hide()
+		})
+	}
+
+	$(document).ready(function () {
+		$("#logout-btn").click(function () {
+			firebase.auth().signOut().then(function () {
+				console.log("Status: Signed Out");
+				alert("Signed Out")
+				showLogin();
+			}).catch(function (error) {
+				alert("Couldn't Sign Out Try After Some Time");
+				console.log(error);
+			});
+		});
+	});
+
+	/*########## UPDAING USER INFORMATION (Currently Not Working I Will Update It Also In Future So Stay Tuned) ########## */
+
+	var form6 = document.getElementById("form6");
+
+	form6.addEventListener("submit", e => {
+		e.preventDefault();
+		validatePasswordUpdateForm();
+	})
+
+	function updateUserPassword() {
+		var new_User_Pass2 = $("#new-user-password").val();
+		var user = firebase.auth().currentUser;
+
+		user.updatePassword(new_User_Pass2).then(function () {
+			alert("Password Updated, You Can Now Login With Your New Password");
+			logoutCurrentUser();
+		}).catch(function (error) {
+			alert(error + " Try Logging Out And Signing In Again To Reset Your Password.");
+			console.log(error);
+		})
+	}
+
+	var formno5 = document.getElementById("formno5");
+
+	formno5.addEventListener("submit", e => {
+		e.preventDefault();
+		validateEmailUpdateForm();
+	})
+
+	function updateUserEmail() {
+		var user = firebase.auth().currentUser;
+		var new_Email_Of_Current_User = $("#new-user-email").val();
+		//var cpotuser = $("#current-user-password-2").val();
+
+		user.updateEmail(new_Email_Of_Current_User).then(function () {
+			alert("Email Updated, You Can Now Login With Your New Email");
+			logoutCurrentUser();
+		}).catch(function (error) {
+			alert(error + " Try Logging Out And Signing In Again To Reset Your Password.");
+			console.log(error);
+		})
+	}
+</script>
+
+</html>
